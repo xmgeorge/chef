@@ -1,0 +1,33 @@
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+
+platforms:
+  - name: centos-5.11
+  - name: centos-6.7
+  - name: centos-7.1
+  - name: fedora-21
+
+suites:
+- name: connectors
+  run_list:
+  - recipe[yum-mysql-community::connectors]
+  attributes: {}
+
+- name: mysql55
+  run_list:
+  - recipe[yum-mysql-community::mysql55]
+  includes: [ centos-6.4 ]
+  attributes: {}
+
+- name: mysql56
+  run_list:
+  - recipe[yum-mysql-community::mysql56]
+  attributes: {}
+
+- name: mysql57
+  run_list:
+  - recipe[yum-mysql-community::mysql57]
+  attributes: {}
