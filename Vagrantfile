@@ -8,8 +8,8 @@ Vagrant.configure(2) do |config|
   config.vm.synced_folder "./", "/var/www/html"
   config.hostsupdater.remove_on_suspend = true
   config.vm.network :private_network, ip: "192.168.3.10"
-  config.vm.hostname = "easyhomefix.local"
-  config.hostsupdater.aliases = ["www.easyhomefix.local"]
+  config.vm.hostname = "launchpad6.dev"
+  config.hostsupdater.aliases = ["www.launchpad6.dev", "manager.launchpad6.dev"]
 
 #####################################################################################################
 #  config.vm.provision :shell, path: "bootstrap.sh"

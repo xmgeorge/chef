@@ -1,4 +1,6 @@
 #package 'vim'
+include_recipe 'test_site::apache'
+#include_recipe 'test_site::mysql'
 include_recipe 'apt'
 package "mediainfo" do
   action :install
@@ -13,7 +15,8 @@ end
 include_recipe 'apache2'
 # disable default site
 apache_site '000-default' do
-enable true
+#enable true
+enable false
 end
 
 apache_module 'mpm_event' do
@@ -32,18 +35,3 @@ end
 package "php5-gd" do
   action :install
 end
-
-
-
-
-#include_recipe 'apache'
-#include_recipe 'test_site::mysql'
-
-
-#directory(node[:test_site][:app_root])
-
-#web_app(node[:test_site][:app_name]) do
-#  server_name(node[:test_site][:server_name])
-#  docroot(node[:test_site][:app_root])
-#  template('vhost.conf.erb')
-#end
