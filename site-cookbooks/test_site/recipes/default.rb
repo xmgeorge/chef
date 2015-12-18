@@ -1,6 +1,5 @@
-#package 'vim'
 include_recipe 'test_site::apache'
-#include_recipe 'test_site::mysql'
+include_recipe 'test_site::mysql'
 include_recipe 'apt'
 package "mediainfo" do
   action :install
